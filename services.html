@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services - NavTrust</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">NavTrust</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section services">
+      <h2>Our Services</h2>
+      <div class="services-grid" id="servicesGrid">
+        <!-- Services with random images injected by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NavTrust Inc. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const services = [
+      "Structural Engineering",
+      "Invoicing and Marketing Services",
+      "Civil Engineering",
+      "Mechanical Engineering",
+      "Electrical Engineering",
+      "Project Management",
+      "Site Supervision",
+      "Construction Consulting",
+      "Residential and Commercial Development",
+      "Environmental Engineering",
+      "Urban Planning",
+      "Geotechnical Engineering",
+      "Transport Engineering",
+      "Water Resource Management",
+      "Renewable Energy Projects"
+    ];
+
+    function getRandomImageUrl(service) {
+      const query = encodeURIComponent(service);
+      return `https://source.unsplash.com/400x300/?${query}&sig=${Math.floor(Math.random() * 1000)}`;
+    }
+
+    const servicesGrid = document.getElementById('servicesGrid');
+    services.forEach(service => {
+      const serviceCard = document.createElement('div');
+      serviceCard.className = 'service-card';
+      serviceCard.innerHTML = `
+        <img src="${getRandomImageUrl(service)}" alt="${service}" loading="lazy" />
+        <h3>${service}</h3>
+      `;
+      servicesGrid.appendChild(serviceCard);
+    });
+  </script>
+</body>
+</html>
