@@ -1,65 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NavTrust</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NavTrust - Home</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>NavTrust</h1>
-    </header>
-    <div class="container">
-        <section class="section about">
-            <h2>About Me</h2>
-            <p>Welcome to my NavTrust Professionals portfolio. With 10 years of experience in the industry, I specialize in delivering high-quality engineering solutions on outreach projects. My expertise ranges from residential to commercial outreach and marketing service, ensuring that each project is completed with precision and excellence.</p>
-        </section>
-        <section class="section services">
-            <h2>Services</h2>
-            <ul>
-                <li>Structural Engineering</li>
-                <li>Invoicing and Marketing services 
-                <li>Civil Engineering</li>
-                <li>Mechanical Engineering</li>
-                <li>Electrical Engineering</li>
-                <li>Project Management</li>
-                <li>Site Supervision</li>
-                <li>Construction Consulting</li>
-                <li>Residential and Commercial Development</li>
-                <li>Environmental Engineering</li>
-                <li>Urban Planning</li>
-                <li>Geotechnical Engineering</li>
-                <li>Transport Engineering</li>
-                <li>Water Resource Management</li>
-                <li>Renewable Energy Projects</li>
-            </ul>
-        </section>
-        <section class="section projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Residential Building</h3>
-                <img src="path/to/your/image1.jpg" alt="Residential Building">
-                <p>Description of the residential building project, highlighting key aspects and achievements.</p>
-            </div>
-            <div class="project">
-                <h3>Commercial Complex</h3>
-                <img src="path/to/your/image2.jpg" alt="Commercial Complex">
-                <p>Description of the commercial complex project, detailing the challenges and solutions implemented.</p>
-            </div>
-        </section>
-        <section class="section contact">
-            <h2>Contact</h2>
-            <p>If you have any inquiries or would like to discuss a project, feel free to reach out to me.</p>
-            <ul>
-                <li>Email: <a href="mailto:noreply@navtrust.sbs>recipients@navtrust.sbs</a></li>
-                <li>Phone: +1 307-851-6005</li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/navtrust" target="_blank">NavTrust</a></li>
-            </ul>
-        </section>
-    </div>
-    <footer>
-        <p>&copy; 2025 NavTrust Inc All rights reserved.</p>
-    </footer>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">NavTrust</h1>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Welcome to NavTrust Professionals</h2>
+      <p>
+        Delivering high-quality engineering and outreach solutions for over 10 years. 
+        Specializing in residential, commercial, and environmental projects with precision and excellence.
+      </p>
+    </section>
+
+    <section class="services-preview">
+      <h2>Our Services</h2>
+      <div class="services-grid" id="servicesGrid">
+        <!-- Services with random images will be injected here by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NavTrust Inc. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // List of services
+    const services = [
+      "Structural Engineering",
+      "Invoicing and Marketing Services",
+      "Civil Engineering",
+      "Mechanical Engineering",
+      "Electrical Engineering",
+      "Project Management",
+      "Site Supervision",
+      "Construction Consulting",
+      "Residential and Commercial Development",
+      "Environmental Engineering",
+      "Urban Planning",
+      "Geotechnical Engineering",
+      "Transport Engineering",
+      "Water Resource Management",
+      "Renewable Energy Projects"
+    ];
+
+    // Function to generate random image URLs (using Unsplash source with random query)
+    function getRandomImageUrl(service) {
+      // Encode service name for URL query
+      const query = encodeURIComponent(service);
+      return `https://source.unsplash.com/400x300/?${query}&sig=${Math.floor(Math.random() * 1000)}`;
+    }
+
+    // Inject services with images into the page
+    const servicesGrid = document.getElementById('servicesGrid');
+    services.forEach(service => {
+      const serviceCard = document.createElement('div');
+      serviceCard.className = 'service-card';
+      serviceCard.innerHTML = `
+        <img src="${getRandomImageUrl(service)}" alt="${service}" loading="lazy" />
+        <h3>${service}</h3>
+      `;
+      servicesGrid.appendChild(serviceCard);
+    });
+  </script>
 </body>
 </html>
